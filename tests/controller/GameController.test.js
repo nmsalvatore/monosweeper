@@ -15,4 +15,18 @@ describe('GameController', () => {
       expect(state.status).toBe('playing');
     });
   });
+
+  describe('handleCellClick', () => {
+    it('should reveal a cell when clicked', () => {
+      const controller = new GameController();
+      controller.startNewGame(5, 5, 2);
+      // Mark as not first click
+      controller.isFirstClick = false;
+
+      controller.handleCellClick(2, 2);
+
+      const cell = controller.board.getCell(2, 2);
+      expect(cell.isRevealed).toBe(true);
+    });
+  });
 });
