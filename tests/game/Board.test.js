@@ -139,4 +139,24 @@ describe('Board', () => {
       expect(board.getCell(1, 1).isRevealed).toBe(true);
     });
   });
+
+  describe('isGameWon', () => {
+    it('should return true when all non-mine cells are revealed', () => {
+      const board = new Board(3, 3);
+      board.getCell(0, 0).setMine();
+      board.calculateAdjacentMines();
+
+      // Reveal all non-mine cells
+      for (let row = 0; row < board.rows; row++) {
+        for (let col = 0; col < board.cols; col++) {
+          const cell = board.getCell(row, col);
+          if (!cell.isMine) {
+            cell.reveal();
+          }
+        }
+      }
+
+      expect(board.isGameWon()).toBe(true);
+    });
+  });
 });

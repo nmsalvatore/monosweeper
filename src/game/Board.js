@@ -86,4 +86,17 @@ export class Board {
       }
     }
   }
+
+  isGameWon() {
+    for (let row = 0; row < this.rows; row++) {
+      for (let col = 0; col < this.cols; col++) {
+        const cell = this.getCell(row, col);
+        // If there's a non-mine cell that isn't revealed, game not won
+        if (!cell.isMine && !cell.isRevealed) {
+          return false;
+        }
+      }
+    }
+    return true;
+  }
 }
