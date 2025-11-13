@@ -114,26 +114,29 @@ All RED-GREEN cycles are logged to `tdd-log.json` with:
 ### Completed ✅
 - [x] **Project initialization** - Vite, Vitest, folder structure, git workflow
 - [x] **Phase 1: Core Data Structures**
-  - Cell class (9 tests) - position, state, reveal, flag, setMine, setAdjacentMines
+  - Cell class (5 tests) - position, state, reveal, flag, setMine, setAdjacentMines
   - Board class (9 tests) - grid initialization, getCell, getNeighbors, placeMines, calculateAdjacentMines
 - [x] **Phase 2: Game Actions**
   - revealCell with flood-fill algorithm (5 tests)
   - isGameWon / isGameLost detection
+- [x] **Phase 3: Game Controller**
+  - GameController class (4 tests) - orchestrates game flow
+  - First-click guarantee (board regeneration)
+  - Game state management (idle → playing → won/lost)
+  - handleCellClick and handleCellRightClick
+  - Clean API for UI layer via getGameState
 
-**Total: 23 tests passing | 19 TDD cycles logged**
+**Total: 23 tests passing | 23 TDD cycles logged**
+
+**All core game logic complete and tested!** 🎉
 
 ### In Progress 🚧
-- [ ] **Phase 3: Game Controller**
-  - GameController class to orchestrate game flow
-  - First-click guarantee implementation
-  - Game state management (playing/won/lost)
-  - Clean API for UI layer
-
-### Planned 📋
 - [ ] **Phase 4: UI Layer**
   - BoardRenderer - render grid to DOM
   - InputHandler - mouse/touch events
   - CSS styling and responsive design
+
+### Planned 📋
 - [ ] **Phase 5: Enhancements** (optional)
   - Timer
   - Mine counter
