@@ -120,5 +120,23 @@ describe('Board', () => {
 
       expect(board.getCell(1, 1).isRevealed).toBe(true);
     });
+
+    it('should trigger flood-fill for empty cells with 0 adjacent mines', () => {
+      const board = new Board(5, 5);
+      // Place a mine in corner so center area has 0 adjacent mines
+      board.getCell(0, 0).setMine();
+      board.calculateAdjacentMines();
+
+      // Reveal a cell far from the mine (should trigger flood-fill)
+      board.revealCell(4, 4);
+
+      // All cells with 0 adjacent mines connected to (4,4) should be revealed
+      // Plus their neighbors with adjacentMines > 0
+      expect(board.getCell(4, 4).isRevealed).toBe(true);
+      expect(board.getCell(3, 3).isRevealed).toBe(true);
+      expect(board.getCell(2, 2).isRevealed).toBe(true);
+      // Cell (1,1) should also be revealed as part of flood-fill
+      expect(board.getCell(1, 1).isRevealed).toBe(true);
+    });
   });
 });

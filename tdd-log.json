@@ -137,6 +137,15 @@
       "greenTimestamp": "2025-01-13T06:37:13Z",
       "notes": "Added revealCell method that calls cell.reveal()",
       "status": "passing"
+    },
+    {
+      "id": 16,
+      "module": "Board",
+      "description": "revealCell should trigger flood-fill for empty cells with 0 adjacent mines",
+      "redTimestamp": "2025-01-13T06:38:09Z",
+      "greenTimestamp": "2025-01-13T06:38:27Z",
+      "notes": "Implemented recursive flood-fill algorithm for cells with 0 adjacent mines",
+      "status": "passing"
     }
   ]
 }

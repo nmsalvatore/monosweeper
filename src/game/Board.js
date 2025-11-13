@@ -70,6 +70,20 @@ export class Board {
 
   revealCell(row, col) {
     const cell = this.getCell(row, col);
+
+    // Don't reveal if out of bounds, already revealed, or flagged
+    if (!cell || cell.isRevealed || cell.isFlagged) {
+      return;
+    }
+
     cell.reveal();
+
+    // If cell has 0 adjacent mines, flood-fill to neighbors
+    if (cell.adjacentMines === 0) {
+      const neighbors = this.getNeighbors(row, col);
+      for (const neighbor of neighbors) {
+        this.revealCell(neighbor.row, neighbor.col);
+      }
+    }
   }
 }
