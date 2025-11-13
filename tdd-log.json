@@ -254,6 +254,15 @@
       "greenTimestamp": "2025-01-13T07:16:45Z",
       "notes": "Added else branch to add cell-revealed class when cell.isRevealed is true",
       "status": "passing"
+    },
+    {
+      "id": 29,
+      "module": "BoardRenderer",
+      "description": "should add cell-flagged class to flagged cells",
+      "redTimestamp": "2025-01-13T07:17:12Z",
+      "greenTimestamp": "2025-01-13T07:17:32Z",
+      "notes": "Added check for cell.isFlagged to apply cell-flagged class",
+      "status": "passing"
     }
   ]
 }

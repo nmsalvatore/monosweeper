@@ -24,6 +24,10 @@ export class BoardRenderer {
           cellElement.classList.add('cell-revealed');
         }
 
+        if (cell.isFlagged) {
+          cellElement.classList.add('cell-flagged');
+        }
+
         boardElement.appendChild(cellElement);
       }
     }
