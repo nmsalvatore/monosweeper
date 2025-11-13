@@ -42,4 +42,18 @@ export class Board {
 
     return neighbors;
   }
+
+  placeMines(count) {
+    let placed = 0;
+    while (placed < count) {
+      const row = Math.floor(Math.random() * this.rows);
+      const col = Math.floor(Math.random() * this.cols);
+      const cell = this.getCell(row, col);
+
+      if (!cell.isMine) {
+        cell.setMine();
+        placed++;
+      }
+    }
+  }
 }

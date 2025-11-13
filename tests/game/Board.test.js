@@ -69,4 +69,23 @@ describe('Board', () => {
       expect(neighbors.length).toBe(3);
     });
   });
+
+  describe('placeMines', () => {
+    it('should place correct number of mines', () => {
+      const board = new Board(5, 5);
+
+      board.placeMines(5);
+
+      let mineCount = 0;
+      for (let row = 0; row < board.rows; row++) {
+        for (let col = 0; col < board.cols; col++) {
+          if (board.getCell(row, col).isMine) {
+            mineCount++;
+          }
+        }
+      }
+
+      expect(mineCount).toBe(5);
+    });
+  });
 });

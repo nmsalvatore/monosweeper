@@ -110,6 +110,15 @@
       "greenTimestamp": "2025-01-13T06:26:41Z",
       "notes": "Already green - getNeighbors correctly filters out-of-bounds cells",
       "status": "passing"
+    },
+    {
+      "id": 13,
+      "module": "Board",
+      "description": "placeMines should place correct number of mines",
+      "redTimestamp": "2025-01-13T06:27:20Z",
+      "greenTimestamp": "2025-01-13T06:27:37Z",
+      "notes": "Implemented random mine placement with duplicate prevention",
+      "status": "passing"
     }
   ]
 }
