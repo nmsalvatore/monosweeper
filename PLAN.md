@@ -7,10 +7,10 @@
 - [x] Test 25: Should render correct number of cell elements
 - [x] Test 26: Should set data-row and data-col attributes on each cell
 
-### Phase A: Cell State Classes (3 tests)
-- [ ] Test 27: Should add 'cell-hidden' class to unrevealed cells
-- [ ] Test 28: Should add 'cell-revealed' class to revealed cells
-- [ ] Test 29: Should add 'cell-flagged' class to flagged cells
+### ✅ Phase A: Cell State Classes (3 tests) - COMPLETE
+- [x] Test 27: Should add 'cell-hidden' class to unrevealed cells
+- [x] Test 28: Should add 'cell-revealed' class to revealed cells
+- [x] Test 29: Should add 'cell-flagged' class to flagged cells
 
 ### Phase B: Cell Content Display (4 tests)
 - [ ] Test 30: Should display adjacent mine count (1-8) on revealed cells with mines nearby
