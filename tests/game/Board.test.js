@@ -30,4 +30,16 @@ describe('Board', () => {
       expect(board.grid[2][2].col).toBe(2);
     });
   });
+
+  describe('getCell', () => {
+    it('should return cell at given position', () => {
+      const board = new Board(3, 3);
+
+      const cell = board.getCell(1, 2);
+
+      expect(cell).toBeInstanceOf(Cell);
+      expect(cell.row).toBe(1);
+      expect(cell.col).toBe(2);
+    });
+  });
 });

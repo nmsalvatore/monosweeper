@@ -17,4 +17,8 @@ export class Board {
     }
     return grid;
   }
+
+  getCell(row, col) {
+    return this.grid[row][col];
+  }
 }

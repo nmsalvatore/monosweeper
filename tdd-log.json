@@ -74,6 +74,15 @@
       "greenTimestamp": "2025-01-13T06:23:57Z",
       "notes": "Updated _initializeGrid to create Cell instances with correct row/col",
       "status": "passing"
+    },
+    {
+      "id": 9,
+      "module": "Board",
+      "description": "getCell should return cell at given position",
+      "redTimestamp": "2025-01-13T06:24:27Z",
+      "greenTimestamp": "2025-01-13T06:24:41Z",
+      "notes": "Added getCell method to retrieve cell by row and col",
+      "status": "passing"
     }
   ]
 }
