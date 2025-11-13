@@ -281,6 +281,15 @@
       "greenTimestamp": "2025-01-13T07:19:08Z",
       "notes": "Already green - previous implementation only adds content when adjacentMines > 0",
       "status": "passing"
+    },
+    {
+      "id": 32,
+      "module": "BoardRenderer",
+      "description": "should display mine symbol on revealed mine cells",
+      "redTimestamp": "2025-01-13T07:19:40Z",
+      "greenTimestamp": "2025-01-13T07:20:01Z",
+      "notes": "Added mine symbol display - check cell.isMine and show 💣 for revealed mines",
+      "status": "passing"
     }
   ]
 }

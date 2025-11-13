@@ -94,5 +94,16 @@ describe('BoardRenderer', () => {
       const cellElement = container.querySelector('[data-row="2"][data-col="2"]');
       expect(cellElement.textContent).toBe('');
     });
+
+    it('should display mine symbol on revealed mine cells', () => {
+      // Set up a mine cell and reveal it
+      const cell = board.getCell(0, 0);
+      cell.setMine();
+      cell.reveal();
+      renderer.render();
+
+      const mineCell = container.querySelector('[data-row="0"][data-col="0"]');
+      expect(mineCell.textContent).toBe('💣');
+    });
   });
 });

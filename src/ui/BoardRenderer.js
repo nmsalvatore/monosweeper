@@ -29,8 +29,12 @@ export class BoardRenderer {
         }
 
         // Add cell content
-        if (cell.isRevealed && cell.adjacentMines > 0) {
-          cellElement.textContent = cell.adjacentMines;
+        if (cell.isRevealed) {
+          if (cell.isMine) {
+            cellElement.textContent = '💣';
+          } else if (cell.adjacentMines > 0) {
+            cellElement.textContent = cell.adjacentMines;
+          }
         }
 
         boardElement.appendChild(cellElement);
