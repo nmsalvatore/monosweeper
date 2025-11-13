@@ -12,11 +12,11 @@
 - [x] Test 28: Should add 'cell-revealed' class to revealed cells
 - [x] Test 29: Should add 'cell-flagged' class to flagged cells
 
-### Phase B: Cell Content Display (4 tests)
-- [ ] Test 30: Should display adjacent mine count (1-8) on revealed cells with mines nearby
-- [ ] Test 31: Should display empty content on revealed cells with 0 adjacent mines
-- [ ] Test 32: Should display mine symbol (💣) on revealed mine cells
-- [ ] Test 33: Should display flag symbol (🚩) on flagged cells
+### ✅ Phase B: Cell Content Display (4 tests) - COMPLETE
+- [x] Test 30: Should display adjacent mine count (1-8) on revealed cells with mines nearby
+- [x] Test 31: Should display empty content on revealed cells with 0 adjacent mines
+- [x] Test 32: Should display mine symbol (💣) on revealed mine cells
+- [x] Test 33: Should display flag symbol (🚩) on flagged cells
 
 ### Phase C: Grid Layout (1 test)
 - [ ] Test 34: Should set CSS grid-template properties based on board dimensions (rows/cols)
