@@ -236,6 +236,15 @@
       "greenTimestamp": "2025-01-13T07:10:23Z",
       "notes": "Added data-row and data-col attributes to cell elements for event handling",
       "status": "passing"
+    },
+    {
+      "id": 27,
+      "module": "BoardRenderer",
+      "description": "should add cell-hidden class to unrevealed cells",
+      "redTimestamp": "2025-01-13T07:15:29Z",
+      "greenTimestamp": "2025-01-13T07:15:55Z",
+      "notes": "Added cell-hidden class for unrevealed cells by checking cell.isRevealed",
+      "status": "passing"
     }
   ]
 }

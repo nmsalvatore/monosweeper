@@ -11,10 +11,17 @@ export class BoardRenderer {
     // Create cell elements for each cell in the board
     for (let row = 0; row < this.board.rows; row++) {
       for (let col = 0; col < this.board.cols; col++) {
+        const cell = this.board.getCell(row, col);
         const cellElement = document.createElement('div');
         cellElement.className = 'cell';
         cellElement.setAttribute('data-row', row);
         cellElement.setAttribute('data-col', col);
+
+        // Add state classes
+        if (!cell.isRevealed) {
+          cellElement.classList.add('cell-hidden');
+        }
+
         boardElement.appendChild(cellElement);
       }
     }

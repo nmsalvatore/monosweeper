@@ -41,4 +41,15 @@ describe('BoardRenderer', () => {
       expect(lastCell.getAttribute('data-col')).toBe('2');
     });
   });
+
+  describe('cell state classes', () => {
+    it('should add cell-hidden class to unrevealed cells', () => {
+      renderer.render();
+
+      const cells = container.querySelectorAll('.cell');
+      cells.forEach(cell => {
+        expect(cell.classList.contains('cell-hidden')).toBe(true);
+      });
+    });
+  });
 });
