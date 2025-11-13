@@ -126,4 +126,27 @@ describe('BoardRenderer', () => {
       expect(boardElement.style.gridTemplateColumns).toBe('repeat(3, 1fr)');
     });
   });
+
+  describe('re-rendering', () => {
+    it('should clear and re-render when render() called multiple times', () => {
+      // Initial render
+      renderer.render();
+      expect(container.querySelectorAll('.board').length).toBe(1);
+      expect(container.querySelectorAll('.cell').length).toBe(9);
+
+      // Change game state
+      board.getCell(0, 0).reveal();
+
+      // Re-render
+      renderer.render();
+
+      // Should still have only one board and 9 cells
+      expect(container.querySelectorAll('.board').length).toBe(1);
+      expect(container.querySelectorAll('.cell').length).toBe(9);
+
+      // The revealed cell should have the correct class
+      const revealedCell = container.querySelector('[data-row="0"][data-col="0"]');
+      expect(revealedCell.classList.contains('cell-revealed')).toBe(true);
+    });
+  });
 });

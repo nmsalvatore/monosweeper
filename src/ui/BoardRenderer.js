@@ -5,6 +5,9 @@ export class BoardRenderer {
   }
 
   render() {
+    // Clear previous render
+    this.container.innerHTML = '';
+
     const boardElement = document.createElement('div');
     boardElement.className = 'board';
 

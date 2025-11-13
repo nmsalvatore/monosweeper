@@ -308,6 +308,15 @@
       "greenTimestamp": "2025-01-13T07:22:08Z",
       "notes": "Set grid-template-rows and grid-template-columns using board rows/cols for responsive grid",
       "status": "passing"
+    },
+    {
+      "id": 35,
+      "module": "BoardRenderer",
+      "description": "should clear and re-render when render() called multiple times",
+      "redTimestamp": "2025-01-13T07:22:59Z",
+      "greenTimestamp": "2025-01-13T07:23:24Z",
+      "notes": "Clear container with innerHTML = '' before rendering to enable state updates",
+      "status": "passing"
     }
   ]
 }
