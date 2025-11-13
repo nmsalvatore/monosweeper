@@ -51,4 +51,14 @@ describe('Board', () => {
       expect(board.getCell(0, 3)).toBeNull();
     });
   });
+
+  describe('getNeighbors', () => {
+    it('should return 8 neighbors for center cell', () => {
+      const board = new Board(3, 3);
+
+      const neighbors = board.getNeighbors(1, 1);
+
+      expect(neighbors.length).toBe(8);
+    });
+  });
 });

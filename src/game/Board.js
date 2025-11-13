@@ -24,4 +24,22 @@ export class Board {
     }
     return this.grid[row][col];
   }
+
+  getNeighbors(row, col) {
+    const neighbors = [];
+    const directions = [
+      [-1, -1], [-1, 0], [-1, 1],
+      [0, -1],           [0, 1],
+      [1, -1],  [1, 0],  [1, 1]
+    ];
+
+    for (const [dRow, dCol] of directions) {
+      const cell = this.getCell(row + dRow, col + dCol);
+      if (cell !== null) {
+        neighbors.push(cell);
+      }
+    }
+
+    return neighbors;
+  }
 }

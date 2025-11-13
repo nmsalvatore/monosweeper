@@ -92,6 +92,15 @@
       "greenTimestamp": "2025-01-13T06:25:23Z",
       "notes": "Added bounds checking to getCell method",
       "status": "passing"
+    },
+    {
+      "id": 11,
+      "module": "Board",
+      "description": "getNeighbors should return 8 neighbors for center cell",
+      "redTimestamp": "2025-01-13T06:25:55Z",
+      "greenTimestamp": "2025-01-13T06:26:09Z",
+      "notes": "Implemented getNeighbors method to find all 8 adjacent cells",
+      "status": "passing"
     }
   ]
 }
