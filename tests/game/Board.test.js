@@ -159,4 +159,24 @@ describe('Board', () => {
       expect(board.isGameWon()).toBe(true);
     });
   });
+
+  describe('isGameLost', () => {
+    it('should return true when a mine is revealed', () => {
+      const board = new Board(3, 3);
+      board.getCell(1, 1).setMine();
+
+      board.getCell(1, 1).reveal();
+
+      expect(board.isGameLost()).toBe(true);
+    });
+
+    it('should return false when no mines are revealed', () => {
+      const board = new Board(3, 3);
+      board.getCell(1, 1).setMine();
+
+      board.getCell(0, 0).reveal();
+
+      expect(board.isGameLost()).toBe(false);
+    });
+  });
 });

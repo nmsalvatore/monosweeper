@@ -99,4 +99,17 @@ export class Board {
     }
     return true;
   }
+
+  isGameLost() {
+    for (let row = 0; row < this.rows; row++) {
+      for (let col = 0; col < this.cols; col++) {
+        const cell = this.getCell(row, col);
+        // If a mine is revealed, game is lost
+        if (cell.isMine && cell.isRevealed) {
+          return true;
+        }
+      }
+    }
+    return false;
+  }
 }

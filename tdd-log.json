@@ -155,6 +155,24 @@
       "greenTimestamp": "2025-01-13T06:39:23Z",
       "notes": "Implemented win condition check - iterates all cells to verify non-mines are revealed",
       "status": "passing"
+    },
+    {
+      "id": 18,
+      "module": "Board",
+      "description": "isGameLost should return true when a mine is revealed",
+      "redTimestamp": "2025-01-13T06:39:57Z",
+      "greenTimestamp": "2025-01-13T06:40:13Z",
+      "notes": "Implemented lose condition check - finds any revealed mine",
+      "status": "passing"
+    },
+    {
+      "id": 19,
+      "module": "Board",
+      "description": "isGameLost should return false when no mines are revealed",
+      "redTimestamp": "2025-01-13T06:39:57Z",
+      "greenTimestamp": "2025-01-13T06:40:13Z",
+      "notes": "Validates isGameLost returns false when game is still in progress",
+      "status": "passing"
     }
   ]
 }
