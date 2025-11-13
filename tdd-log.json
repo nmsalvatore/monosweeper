@@ -47,6 +47,15 @@
       "greenTimestamp": "2025-01-13T06:14:42Z",
       "notes": "Added setAdjacentMines method - Cell class complete!",
       "status": "passing"
+    },
+    {
+      "id": 6,
+      "module": "Board",
+      "description": "should create a board with specified rows and cols",
+      "redTimestamp": "2025-01-13T06:21:33Z",
+      "greenTimestamp": "2025-01-13T06:21:46Z",
+      "notes": "Board class created with rows and cols properties",
+      "status": "passing"
     }
   ]
 }
