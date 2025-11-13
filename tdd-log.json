@@ -227,6 +227,15 @@
       "greenTimestamp": "2025-01-13T07:07:53Z",
       "notes": "Added nested loop to create cell div for each position in board grid",
       "status": "passing"
+    },
+    {
+      "id": 26,
+      "module": "BoardRenderer",
+      "description": "should set data-row and data-col attributes on each cell",
+      "redTimestamp": "2025-01-13T07:10:09Z",
+      "greenTimestamp": "2025-01-13T07:10:23Z",
+      "notes": "Added data-row and data-col attributes to cell elements for event handling",
+      "status": "passing"
     }
   ]
 }

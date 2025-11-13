@@ -28,5 +28,17 @@ describe('BoardRenderer', () => {
       const cells = container.querySelectorAll('.cell');
       expect(cells.length).toBe(9); // 3x3 board = 9 cells
     });
+
+    it('should set data-row and data-col attributes on each cell', () => {
+      renderer.render();
+
+      const firstCell = container.querySelector('.cell');
+      expect(firstCell.getAttribute('data-row')).toBe('0');
+      expect(firstCell.getAttribute('data-col')).toBe('0');
+
+      const lastCell = container.querySelectorAll('.cell')[8];
+      expect(lastCell.getAttribute('data-row')).toBe('2');
+      expect(lastCell.getAttribute('data-col')).toBe('2');
+    });
   });
 });

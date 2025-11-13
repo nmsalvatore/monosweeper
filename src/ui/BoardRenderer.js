@@ -13,6 +13,8 @@ export class BoardRenderer {
       for (let col = 0; col < this.board.cols; col++) {
         const cellElement = document.createElement('div');
         cellElement.className = 'cell';
+        cellElement.setAttribute('data-row', row);
+        cellElement.setAttribute('data-col', col);
         boardElement.appendChild(cellElement);
       }
     }
