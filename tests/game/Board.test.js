@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { Board } from '../../src/game/Board.js';
+import { Cell } from '../../src/game/Cell.js';
 
 describe('Board', () => {
   describe('initialization', () => {
@@ -16,6 +17,17 @@ describe('Board', () => {
       expect(board.grid).toBeDefined();
       expect(board.grid.length).toBe(3);
       expect(board.grid[0].length).toBe(3);
+    });
+
+    it('should populate grid with Cell instances', () => {
+      const board = new Board(3, 3);
+
+      expect(board.grid[0][0]).toBeInstanceOf(Cell);
+      expect(board.grid[0][0].row).toBe(0);
+      expect(board.grid[0][0].col).toBe(0);
+      expect(board.grid[2][2]).toBeInstanceOf(Cell);
+      expect(board.grid[2][2].row).toBe(2);
+      expect(board.grid[2][2].col).toBe(2);
     });
   });
 });

@@ -1,3 +1,5 @@
+import { Cell } from './Cell.js';
+
 export class Board {
   constructor(rows, cols) {
     this.rows = rows;
@@ -10,7 +12,7 @@ export class Board {
     for (let row = 0; row < this.rows; row++) {
       grid[row] = [];
       for (let col = 0; col < this.cols; col++) {
-        grid[row][col] = null;
+        grid[row][col] = new Cell(row, col);
       }
     }
     return grid;

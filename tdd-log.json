@@ -65,6 +65,15 @@
       "greenTimestamp": "2025-01-13T06:23:12Z",
       "notes": "Added _initializeGrid method to create 2D array",
       "status": "passing"
+    },
+    {
+      "id": 8,
+      "module": "Board",
+      "description": "should populate grid with Cell instances",
+      "redTimestamp": "2025-01-13T06:23:44Z",
+      "greenTimestamp": "2025-01-13T06:23:57Z",
+      "notes": "Updated _initializeGrid to create Cell instances with correct row/col",
+      "status": "passing"
     }
   ]
 }
