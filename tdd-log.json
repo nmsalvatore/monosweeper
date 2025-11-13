@@ -101,6 +101,15 @@
       "greenTimestamp": "2025-01-13T06:26:09Z",
       "notes": "Implemented getNeighbors method to find all 8 adjacent cells",
       "status": "passing"
+    },
+    {
+      "id": 12,
+      "module": "Board",
+      "description": "getNeighbors should return 3 neighbors for corner cell",
+      "redTimestamp": "2025-01-13T06:26:41Z",
+      "greenTimestamp": "2025-01-13T06:26:41Z",
+      "notes": "Already green - getNeighbors correctly filters out-of-bounds cells",
+      "status": "passing"
     }
   ]
 }

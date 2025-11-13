@@ -60,5 +60,13 @@ describe('Board', () => {
 
       expect(neighbors.length).toBe(8);
     });
+
+    it('should return 3 neighbors for corner cell', () => {
+      const board = new Board(3, 3);
+
+      const neighbors = board.getNeighbors(0, 0);
+
+      expect(neighbors.length).toBe(3);
+    });
   });
 });
