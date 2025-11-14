@@ -380,6 +380,15 @@
       "greenTimestamp": "2025-01-13T19:07:10Z",
       "notes": "Already green - handleClick checks for null row/col before calling gameController",
       "status": "passing"
+    },
+    {
+      "id": 43,
+      "module": "InputHandler",
+      "description": "should ignore right-clicks on non-cell elements",
+      "redTimestamp": "2025-01-13T19:07:38Z",
+      "greenTimestamp": "2025-01-13T19:07:38Z",
+      "notes": "Already green - handleContextMenu checks for null row/col before calling gameController",
+      "status": "passing"
     }
   ]
 }

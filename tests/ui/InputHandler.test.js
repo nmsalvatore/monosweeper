@@ -120,4 +120,23 @@ describe('InputHandler', () => {
     // Should not call handleCellClick
     expect(mockGameController.handleCellClick).not.toHaveBeenCalled();
   });
+
+  // Test 43: Should ignore right-clicks on non-cell elements
+  it('should ignore right-clicks on non-cell elements', () => {
+    new InputHandler(container, mockGameController);
+
+    // Create a non-cell element without data attributes
+    const nonCellElement = document.createElement('div');
+    container.appendChild(nonCellElement);
+
+    // Simulate right-click on the non-cell element
+    const contextMenuEvent = new dom.window.MouseEvent('contextmenu', {
+      bubbles: true,
+      cancelable: true
+    });
+    nonCellElement.dispatchEvent(contextMenuEvent);
+
+    // Should not call handleCellRightClick
+    expect(mockGameController.handleCellRightClick).not.toHaveBeenCalled();
+  });
 });
