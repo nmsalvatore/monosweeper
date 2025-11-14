@@ -38,13 +38,15 @@ function startNewGame() {
 
   gameController.handleCellClick = (row, col) => {
     originalHandleCellClick(row, col);
-    boardRenderer.render();
+    const gameState = gameController.getGameState();
+    boardRenderer.render(gameState.hitMineCell);
     checkGameStatus();
   };
 
   gameController.handleCellRightClick = (row, col) => {
     originalHandleCellRightClick(row, col);
-    boardRenderer.render();
+    const gameState = gameController.getGameState();
+    boardRenderer.render(gameState.hitMineCell);
   };
 
   // Create input handler

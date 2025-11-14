@@ -1,163 +1,218 @@
+/* ========================================
+   Nord Theme - CSS Variables (DRY)
+   ======================================== */
+:root {
+    /* Color Palette - 3 Colors Max (Nord-inspired) */
+    --nord-bg: HSL(220, 15%, 25%);
+    --nord-primary: HSL(190, 45%, 60%);
+    --nord-accent: HSL(220, 15%, 35%);
+    --nord-red: HSL(355, 42.5%, 57.5%);
+    --nord-red-light: HSL(355, 72.5%, 82.5%);
+
+    /* Spacing */
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+
+    /* Cell sizes */
+    --cell-size: 40px;
+    --cell-size-mobile: 35px;
+    --cell-size-small: 30px;
+}
+
+/* ========================================
+   Base Styles
+   ======================================== */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
+    font-family: monospace;
+    background: var(--nord-bg);
+    color: var(--nord-primary);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
 }
 
 #app {
-  background: white;
-  border-radius: 16px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-  padding: 32px;
-  max-width: 600px;
-  width: 100%;
+    background: var(--nord-bg);
+    padding: var(--spacing-xl);
+    max-width: 600px;
 }
 
+/* ========================================
+   Header
+   ======================================== */
 header {
-  text-align: center;
-  margin-bottom: 24px;
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+    border-bottom: 1px solid var(--nord-accent);
+    padding-bottom: var(--spacing-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2ch;
 }
 
 h1 {
-  color: #333;
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 16px;
+    color: var(--nord-primary);
+    font-size: 1.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 4px;
 }
 
-/* New Game Button */
+h1::before {
+    content: "> ";
+    color: var(--nord-accent);
+}
+
+/* ========================================
+   New Game Button
+   ======================================== */
 .new-game-btn {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  border: none;
-  padding: 12px 24px;
-  font-size: 16px;
-  font-weight: 600;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+    background: transparent;
+    color: var(--nord-accent);
+    border: none;
+    font-family: inherit;
+    font-size: 300%;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+    bottom: 2px;
 }
 
 .new-game-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(102, 126, 234, 0.4);
+    color: var(--nord-primary);
 }
 
 .new-game-btn:active {
-  transform: translateY(0);
-  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+    transform: scale(0.98);
 }
 
+/* ========================================
+   Game Container
+   ======================================== */
 #game-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
 }
 
-/* Board Styles */
+/* ========================================
+   Board Styles
+   ======================================== */
 .board {
-  display: grid;
-  gap: 1px;
-  background-color: #999;
-  border: 3px solid #999;
-  padding: 0;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    display: grid;
+    gap: 1px;
+    background-color: var(--nord-accent);
+    border: 1px solid var(--nord-primary);
+    padding: 4px;
 }
 
-/* Cell Styles */
+/* ========================================
+   Cell Styles
+   ======================================== */
 .cell {
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
-  font-weight: 700;
-  cursor: pointer;
-  user-select: none;
-  transition: background-color 0.1s ease;
+    width: var(--cell-size);
+    height: var(--cell-size);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.1s ease;
+    font-family: inherit;
 }
 
 /* Hidden cells (unrevealed) */
 .cell-hidden {
-  background: linear-gradient(135deg, #e0e0e0 0%, #c0c0c0 100%);
-  border: 2px outset #d0d0d0;
+    background: var(--nord-bg);
+    border: 1px solid var(--nord-accent);
+    color: var(--nord-primary);
 }
 
 .cell-hidden:hover {
-  background: linear-gradient(135deg, #d0d0d0 0%, #b0b0b0 100%);
+    border-color: var(--nord-primary);
 }
 
 .cell-hidden:active {
-  border-style: inset;
+    background: rgba(136, 192, 208, 0.1);
 }
 
 /* Revealed cells */
 .cell-revealed {
-  background-color: #f5f5f5;
-  border: 1px solid #ddd;
-  cursor: default;
+    background-color: rgba(76, 86, 106, 0.2);
+    border: 1px solid var(--nord-accent);
+    cursor: default;
+    color: var(--nord-primary);
 }
 
 /* Flagged cells */
 .cell-flagged {
-  background: linear-gradient(135deg, #ffe0b2 0%, #ffcc80 100%);
-  border: 2px outset #ffb74d;
+    background: rgba(136, 192, 208, 0.15);
+    border: 1px solid var(--nord-primary);
+    color: var(--nord-primary);
+    font-size: 20px;
 }
 
-/* Number colors (classic Minesweeper) */
+/* Hit mine - red background */
+.cell-hit-mine {
+    background: var(--nord-red) !important;
+    border: 1px solid var(--nord-red-light) !important;
+    color: var(--nord-red-light) !important;
+}
+
+/* All numbers and symbols use Nord cyan */
 .cell-revealed:not(:empty) {
-  color: #1976d2; /* Default blue for 1 */
+    color: var(--nord-primary);
 }
 
-/* Specific colors for each number */
-.cell:has-text("1") { color: #1976d2; } /* Blue */
-.cell:has-text("2") { color: #388e3c; } /* Green */
-.cell:has-text("3") { color: #d32f2f; } /* Red */
-.cell:has-text("4") { color: #303f9f; } /* Dark Blue */
-.cell:has-text("5") { color: #7b1fa2; } /* Purple */
-.cell:has-text("6") { color: #00796b; } /* Teal */
-.cell:has-text("7") { color: #000000; } /* Black */
-.cell:has-text("8") { color: #424242; } /* Gray */
-
-/* Emoji styling */
+/* Cell base styling */
 .cell {
-  font-family: 'Segoe UI Emoji', 'Apple Color Emoji', sans-serif;
+    font-family: "Courier New", "Consolas", "Monaco", monospace;
+    font-weight: 700;
 }
 
-/* Responsive */
+/* ========================================
+   Responsive Design
+   ======================================== */
 @media (max-width: 640px) {
-  #app {
-    padding: 20px;
-  }
+    #app {
+        padding: var(--spacing-md);
+    }
 
-  h1 {
-    font-size: 1.5rem;
-  }
+    h1 {
+        font-size: 1.5rem;
+        letter-spacing: 2px;
+    }
 
-  .cell {
-    width: 35px;
-    height: 35px;
-    font-size: 16px;
-  }
+    .cell {
+        width: var(--cell-size-mobile);
+        height: var(--cell-size-mobile);
+        font-size: 16px;
+    }
 }
 
 @media (max-width: 480px) {
-  .cell {
-    width: 30px;
-    height: 30px;
-    font-size: 14px;
-  }
+    .cell {
+        width: var(--cell-size-small);
+        height: var(--cell-size-small);
+        font-size: 14px;
+    }
+
+    h1 {
+        font-size: 1.25rem;
+    }
 }

@@ -103,7 +103,7 @@ describe('BoardRenderer', () => {
       renderer.render();
 
       const mineCell = container.querySelector('[data-row="0"][data-col="0"]');
-      expect(mineCell.textContent).toBe('💣');
+      expect(mineCell.textContent).toBe('✖');
     });
 
     it('should display flag symbol on flagged cells', () => {
@@ -113,7 +113,7 @@ describe('BoardRenderer', () => {
       renderer.render();
 
       const flaggedCell = container.querySelector('[data-row="1"][data-col="0"]');
-      expect(flaggedCell.textContent).toBe('🚩');
+      expect(flaggedCell.textContent).toBe('⚑');
     });
   });
 

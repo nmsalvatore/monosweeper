@@ -8,6 +8,7 @@ export class GameController {
     this.rows = 0;
     this.cols = 0;
     this.mineCount = 0;
+    this.hitMineCell = null;  // Track which mine was clicked (game over)
   }
 
   startNewGame(rows, cols, mineCount) {
@@ -19,6 +20,7 @@ export class GameController {
     this.board.calculateAdjacentMines();
     this.status = 'playing';
     this.isFirstClick = true;
+    this.hitMineCell = null;
   }
 
   handleCellClick(row, col) {
@@ -45,6 +47,11 @@ export class GameController {
     // Check win/lose conditions
     if (this.board.isGameLost()) {
       this.status = 'lost';
+      // Track which mine was hit
+      const cell = this.board.getCell(row, col);
+      if (cell.isMine && cell.isRevealed) {
+        this.hitMineCell = { row, col };
+      }
     } else if (this.board.isGameWon()) {
       this.status = 'won';
     }
@@ -62,7 +69,8 @@ export class GameController {
   getGameState() {
     return {
       board: this.board,
-      status: this.status
+      status: this.status,
+      hitMineCell: this.hitMineCell
     };
   }
 }

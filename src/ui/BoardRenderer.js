@@ -2,9 +2,12 @@ export class BoardRenderer {
   constructor(container, board) {
     this.container = container;
     this.board = board;
+    this.hitMineCell = null;
   }
 
-  render() {
+  render(hitMineCell = null) {
+    this.hitMineCell = hitMineCell;
+
     // Clear previous render
     this.container.innerHTML = '';
 
@@ -35,12 +38,20 @@ export class BoardRenderer {
           cellElement.classList.add('cell-flagged');
         }
 
+        // Mark the hit mine (the one that ended the game)
+        if (this.hitMineCell &&
+            this.hitMineCell.row === row &&
+            this.hitMineCell.col === col &&
+            cell.isMine && cell.isRevealed) {
+          cellElement.classList.add('cell-hit-mine');
+        }
+
         // Add cell content
         if (cell.isFlagged) {
-          cellElement.textContent = '🚩';
+          cellElement.textContent = '⚑';  // Unicode flag symbol (styleable)
         } else if (cell.isRevealed) {
           if (cell.isMine) {
-            cellElement.textContent = '💣';
+            cellElement.textContent = '✖';  // Unicode X symbol (styleable)
           } else if (cell.adjacentMines > 0) {
             cellElement.textContent = cell.adjacentMines;
           }
