@@ -78,8 +78,8 @@ export class Board {
 
     cell.reveal();
 
-    // If cell has 0 adjacent mines, flood-fill to neighbors
-    if (cell.adjacentMines === 0) {
+    // If cell has 0 adjacent mines AND is not a mine, flood-fill to neighbors
+    if (!cell.isMine && cell.adjacentMines === 0) {
       const neighbors = this.getNeighbors(row, col);
       for (const neighbor of neighbors) {
         this.revealCell(neighbor.row, neighbor.col);
