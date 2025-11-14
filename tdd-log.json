@@ -317,6 +317,114 @@
       "greenTimestamp": "2025-01-13T07:23:24Z",
       "notes": "Clear container with innerHTML = '' before rendering to enable state updates",
       "status": "passing"
+    },
+    {
+      "id": 36,
+      "module": "InputHandler",
+      "description": "should accept container and gameController in constructor",
+      "redTimestamp": "2025-01-13T19:00:40Z",
+      "greenTimestamp": "2025-01-13T19:02:22Z",
+      "notes": "Created InputHandler class with constructor storing container and gameController",
+      "status": "passing"
+    },
+    {
+      "id": 37,
+      "module": "InputHandler",
+      "description": "should attach click event listener to container",
+      "redTimestamp": "2025-01-13T19:02:55Z",
+      "greenTimestamp": "2025-01-13T19:03:15Z",
+      "notes": "Added click event listener in constructor with handleClick method",
+      "status": "passing"
+    },
+    {
+      "id": 38,
+      "module": "InputHandler",
+      "description": "should call gameController.handleCellClick with correct row/col on cell click",
+      "redTimestamp": "2025-01-13T19:03:39Z",
+      "greenTimestamp": "2025-01-13T19:04:00Z",
+      "notes": "Implemented handleClick to extract data-row/data-col attributes and call gameController.handleCellClick",
+      "status": "passing"
+    },
+    {
+      "id": 39,
+      "module": "InputHandler",
+      "description": "should attach contextmenu event listener to container",
+      "redTimestamp": "2025-01-13T19:04:32Z",
+      "greenTimestamp": "2025-01-13T19:04:57Z",
+      "notes": "Added contextmenu event listener in constructor with handleContextMenu method",
+      "status": "passing"
+    },
+    {
+      "id": 40,
+      "module": "InputHandler",
+      "description": "should call gameController.handleCellRightClick with correct row/col on cell right-click",
+      "redTimestamp": "2025-01-13T19:05:23Z",
+      "greenTimestamp": "2025-01-13T19:05:43Z",
+      "notes": "Implemented handleContextMenu to extract data-row/data-col attributes and call gameController.handleCellRightClick",
+      "status": "passing"
+    },
+    {
+      "id": 41,
+      "module": "InputHandler",
+      "description": "should prevent default context menu behavior",
+      "redTimestamp": "2025-01-13T19:06:12Z",
+      "greenTimestamp": "2025-01-13T19:06:33Z",
+      "notes": "Added event.preventDefault() to handleContextMenu to prevent browser context menu",
+      "status": "passing"
+    },
+    {
+      "id": 42,
+      "module": "InputHandler",
+      "description": "should ignore clicks on non-cell elements (no data-row/data-col attributes)",
+      "redTimestamp": "2025-01-13T19:07:10Z",
+      "greenTimestamp": "2025-01-13T19:07:10Z",
+      "notes": "Already green - handleClick checks for null row/col before calling gameController",
+      "status": "passing"
+    },
+    {
+      "id": 43,
+      "module": "InputHandler",
+      "description": "should ignore right-clicks on non-cell elements",
+      "redTimestamp": "2025-01-13T19:07:38Z",
+      "greenTimestamp": "2025-01-13T19:07:38Z",
+      "notes": "Already green - handleContextMenu checks for null row/col before calling gameController",
+      "status": "passing"
+    },
+    {
+      "id": 44,
+      "module": "InputHandler",
+      "description": "should ignore clicks on elements with invalid data-row (NaN injection)",
+      "redTimestamp": "2025-01-13T19:36:09Z",
+      "greenTimestamp": "2025-01-13T19:37:09Z",
+      "notes": "Fixed with _getCellCoordinates helper - validates parseInt result with isNaN check. Security vulnerability resolved!",
+      "status": "passing"
+    },
+    {
+      "id": 45,
+      "module": "InputHandler",
+      "description": "should ignore clicks on elements with empty data attributes",
+      "redTimestamp": "2025-01-13T19:36:09Z",
+      "greenTimestamp": "2025-01-13T19:37:09Z",
+      "notes": "Fixed with _getCellCoordinates helper - empty strings now rejected by isNaN validation",
+      "status": "passing"
+    },
+    {
+      "id": 46,
+      "module": "InputHandler",
+      "description": "should ignore clicks on elements with only partial attributes",
+      "redTimestamp": "2025-01-13T19:36:09Z",
+      "greenTimestamp": "2025-01-13T19:36:09Z",
+      "notes": "Already green - null check handles missing data-col attribute",
+      "status": "passing"
+    },
+    {
+      "id": 47,
+      "module": "InputHandler",
+      "description": "should remove event listeners when destroy() is called",
+      "redTimestamp": "2025-01-13T19:36:09Z",
+      "greenTimestamp": "2025-01-13T19:37:09Z",
+      "notes": "Added destroy() method with removeEventListener for both click and contextmenu. Prevents memory leaks!",
+      "status": "passing"
     }
   ]
 }

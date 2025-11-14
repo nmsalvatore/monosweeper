@@ -97,7 +97,7 @@ This strict TDD cycle ensures proper test coverage and prevents over-implementat
 ### Git Workflow
 - **Conventional Commits**: All commits use conventional commit format (test:, feat:, refactor:, etc.)
 - **Feature Branches**: Each new class/feature gets its own branch (e.g., `feature/board-class`)
-- **Test-Driven Commits**: Automated commit after every passing test
+- **Test-Driven Commits**: ommit after every passing test
 - **Main Branch**: Prompt user before merging feature branches to main
 - **Commit Format**: `test(Module): description` or `feat(Module): description`
 
@@ -135,19 +135,24 @@ All RED-GREEN cycles are logged to `tdd-log.json` with:
   - **Phase B**: Cell content display (numbers, mines 💣, flags 🚩)
   - **Phase C**: CSS grid layout (responsive)
   - **Phase D**: Re-rendering support for state updates
+- [x] **Phase 5: InputHandler (UI Layer)**
+  - InputHandler class (12 tests) - complete with TDD
+  - **Phase A**: Basic setup & click handling
+  - **Phase B**: Right-click handling with preventDefault
+  - **Phase C**: Edge cases for non-cell elements
+  - **Phase D**: Security & robustness (NaN validation, destroy method)
 
-**Total: 39 tests passing | 35 TDD cycles logged**
+**Total: 51 tests passing | 47 TDD cycles logged**
 
-**All core game logic + BoardRenderer complete and tested!** 🎉
+**All core game logic + UI event handling complete and production-ready!** 🎉
 
 ### Next Steps 🚀
-**Professional Strategy**: Core business logic is fully tested. Now build thin UI layer pragmatically:
+**Professional Strategy**: Core business logic and event handling complete. Now wire everything together:
 
 1. **Create Playable Prototype** (Quick iteration to validate UX)
-   - [ ] Build InputHandler - simple event delegation (clicks → GameController)
-   - [ ] Create index.html - basic structure
-   - [ ] Add main.js - wire BoardRenderer + InputHandler + GameController
-   - [ ] Add CSS - styling for playable game
+   - [x] Build InputHandler - simple event delegation (clicks → GameController)
+   - [ ] Wire main.js - connect BoardRenderer + InputHandler + GameController
+   - [ ] Add board/cell CSS - styling for playable game
    - [ ] Manual testing - play the game, find issues
 
 2. **Iterate & Polish**
@@ -171,8 +176,8 @@ All RED-GREEN cycles are logged to `tdd-log.json` with:
 
 ## Running the Project
 
-### Current Status: Tests Only
-Right now the game is **fully functional at the logic level** but not yet playable in a browser. All 39 tests pass!
+### Current Status: Ready for Integration
+Right now the game is **fully functional at the logic level** with production-ready event handling. All 51 tests pass! Just need to wire everything together in main.js and add CSS.
 
 ```bash
 # Install dependencies
