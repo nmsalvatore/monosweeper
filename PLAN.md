@@ -28,8 +28,25 @@
 
 **✅ BoardRenderer COMPLETE: 12 tests passing (24-35)**
 
-## InputHandler Test Plan (Future)
-TBD - Will handle mouse/touch events and delegate to GameController
+## InputHandler Test Plan
+
+### Phase A: Basic Setup & Click Handling (3 tests)
+- [ ] Test 36: Should accept container and gameController in constructor
+- [ ] Test 37: Should attach click event listener to container
+- [ ] Test 38: Should call gameController.handleCellClick with correct row/col on cell click
+
+### Phase B: Right-Click Handling (3 tests)
+- [ ] Test 39: Should attach contextmenu event listener to container
+- [ ] Test 40: Should call gameController.handleCellRightClick with correct row/col on cell right-click
+- [ ] Test 41: Should prevent default context menu behavior
+
+### Phase C: Edge Cases (2 tests)
+- [ ] Test 42: Should ignore clicks on non-cell elements (no data-row/data-col attributes)
+- [ ] Test 43: Should ignore right-clicks on non-cell elements
+
+---
+
+**Target: 8 tests for InputHandler (36-43)**
 
 ## CSS Styling (Future)
 TBD - Visual styling and responsive design
