@@ -82,22 +82,63 @@ A modern, mobile-responsive Minesweeper game built with vanilla JavaScript, HTML
 - **Responsive**: Touch-friendly cell sizes, scales for desktop
 
 ## Development Workflow
-**IMPORTANT: One test at a time!**
-- **Red**: Write ONE failing test (logged to `tdd-log.json`)
-- **Green**: Write minimal code to pass that test (logged to `tdd-log.json`)
-- **Commit**: Automated commit after every passing test (test-driven commits)
-- **Check-in**: Confirm with user when:
+**IMPORTANT: One test at a time with mandatory review!**
+
+### TDD Cycle (Red → Green → Review → Refactor/Continue)
+
+1. **RED**: Write ONE failing test
+   - Add test to test file
+   - Run test to confirm it fails
+   - Log failure to `tdd-log.json` with RED timestamp
+
+2. **GREEN**: Write minimal code to pass that test
+   - Implement simplest solution to make test pass
+   - Run test to confirm it passes
+   - Log success to `tdd-log.json` with GREEN timestamp
+
+3. **REVIEW** (Mandatory after every GREEN):
+   - Invoke `@agent-tdd-green-reviewer` to review the test and implementation
+   - Agent checks if code is minimal or needs refactoring
+   - Agent returns verdict: **CONTINUE** or **REFACTOR**
+
+4. **Next Step** (Based on review verdict):
+   - **If CONTINUE**: Commit changes and move to next test (back to RED)
+   - **If REFACTOR**: Improve code, keep tests green, then commit
+
+5. **COMMIT**: After review (and refactoring if needed)
+   - Commit with conventional commit format
+   - Move to next test
+
+### Additional Check-ins
+- Confirm with user when:
   - A logical feature/class is complete
   - OR after 5-10 tests if it's a longer sequence
   - OR before moving to a new phase/module
-- **Refactor**: Improve code while keeping tests green (when needed)
 
-This strict TDD cycle ensures proper test coverage and prevents over-implementation.
+This strict TDD cycle with mandatory code review ensures proper test coverage, prevents over-implementation, and maintains code quality.
+
+### Agent-Assisted Workflow
+
+**TDD Green Reviewer** (`@agent-tdd-green-reviewer`):
+- **When**: Invoked AFTER every passing test (GREEN phase)
+- **Purpose**: Reviews test and implementation to ensure TDD best practices
+- **Checks**:
+  - Is the implementation minimal enough?
+  - Is there code duplication that needs refactoring?
+  - Does the test properly verify the behavior?
+  - Are there obvious improvements to make before moving on?
+- **Returns**: CONTINUE (move to next test) or REFACTOR (improve code first)
+
+**Senior Code Reviewer** (`@agent-senior-code-reviewer`):
+- **When**: Before merging feature branches to main
+- **Purpose**: Comprehensive code review for production readiness
+- **Checks**: Security, architecture, code quality, test coverage, integration
+- **Returns**: APPROVE or NEEDS CHANGES with detailed feedback
 
 ### Git Workflow
 - **Conventional Commits**: All commits use conventional commit format (test:, feat:, refactor:, etc.)
 - **Feature Branches**: Each new class/feature gets its own branch (e.g., `feature/board-class`)
-- **Test-Driven Commits**: ommit after every passing test
+- **Test-Driven Commits**: Commit after every passing test (and review)
 - **Main Branch**: Prompt user before merging feature branches to main
 - **Commit Format**: `test(Module): description` or `feat(Module): description`
 
