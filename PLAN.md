@@ -30,23 +30,23 @@
 
 ## InputHandler Test Plan
 
-### Phase A: Basic Setup & Click Handling (3 tests)
-- [ ] Test 36: Should accept container and gameController in constructor
-- [ ] Test 37: Should attach click event listener to container
-- [ ] Test 38: Should call gameController.handleCellClick with correct row/col on cell click
+### ✅ Phase A: Basic Setup & Click Handling (3 tests) - COMPLETE
+- [x] Test 36: Should accept container and gameController in constructor
+- [x] Test 37: Should attach click event listener to container
+- [x] Test 38: Should call gameController.handleCellClick with correct row/col on cell click
 
-### Phase B: Right-Click Handling (3 tests)
-- [ ] Test 39: Should attach contextmenu event listener to container
-- [ ] Test 40: Should call gameController.handleCellRightClick with correct row/col on cell right-click
-- [ ] Test 41: Should prevent default context menu behavior
+### ✅ Phase B: Right-Click Handling (3 tests) - COMPLETE
+- [x] Test 39: Should attach contextmenu event listener to container
+- [x] Test 40: Should call gameController.handleCellRightClick with correct row/col on cell right-click
+- [x] Test 41: Should prevent default context menu behavior
 
-### Phase C: Edge Cases (2 tests)
-- [ ] Test 42: Should ignore clicks on non-cell elements (no data-row/data-col attributes)
-- [ ] Test 43: Should ignore right-clicks on non-cell elements
+### ✅ Phase C: Edge Cases (2 tests) - COMPLETE
+- [x] Test 42: Should ignore clicks on non-cell elements (no data-row/data-col attributes)
+- [x] Test 43: Should ignore right-clicks on non-cell elements
 
 ---
 
-**Target: 8 tests for InputHandler (36-43)**
+**✅ InputHandler COMPLETE: 8 tests passing (36-43)**
 
 ## CSS Styling (Future)
 TBD - Visual styling and responsive design
