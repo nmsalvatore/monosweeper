@@ -335,6 +335,15 @@
       "greenTimestamp": "2025-01-13T19:03:15Z",
       "notes": "Added click event listener in constructor with handleClick method",
       "status": "passing"
+    },
+    {
+      "id": 38,
+      "module": "InputHandler",
+      "description": "should call gameController.handleCellClick with correct row/col on cell click",
+      "redTimestamp": "2025-01-13T19:03:39Z",
+      "greenTimestamp": "2025-01-13T19:04:00Z",
+      "notes": "Implemented handleClick to extract data-row/data-col attributes and call gameController.handleCellClick",
+      "status": "passing"
     }
   ]
 }

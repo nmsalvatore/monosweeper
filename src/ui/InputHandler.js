@@ -8,6 +8,14 @@ export class InputHandler {
   }
 
   handleClick(event) {
-    // Will implement cell click logic in next test
+    const target = event.target;
+
+    // Check if clicked element has data-row and data-col attributes
+    const row = target.getAttribute('data-row');
+    const col = target.getAttribute('data-col');
+
+    if (row !== null && col !== null) {
+      this.gameController.handleCellClick(parseInt(row, 10), parseInt(col, 10));
+    }
   }
 }
