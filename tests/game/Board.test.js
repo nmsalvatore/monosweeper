@@ -138,6 +138,27 @@ describe('Board', () => {
       // Cell (1,1) should also be revealed as part of flood-fill
       expect(board.getCell(1, 1).isRevealed).toBe(true);
     });
+
+    it('should reveal all mines when a mine is clicked', () => {
+      const board = new Board(5, 5);
+      // Place mines at different locations
+      board.getCell(0, 0).setMine();
+      board.getCell(2, 2).setMine();
+      board.getCell(4, 4).setMine();
+      board.calculateAdjacentMines();
+
+      // Click on one mine
+      board.revealCell(2, 2);
+
+      // All mines should now be revealed
+      expect(board.getCell(0, 0).isRevealed).toBe(true);
+      expect(board.getCell(2, 2).isRevealed).toBe(true);
+      expect(board.getCell(4, 4).isRevealed).toBe(true);
+
+      // Non-mine cells should not be revealed
+      expect(board.getCell(1, 1).isRevealed).toBe(false);
+      expect(board.getCell(3, 3).isRevealed).toBe(false);
+    });
   });
 
   describe('isGameWon', () => {
