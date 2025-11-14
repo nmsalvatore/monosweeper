@@ -229,11 +229,11 @@ h1::before {
     }
 
     .cell {
-        /* Dynamic sizing: (100vw - body padding - app padding - board padding - gaps) / 9 columns */
-        /* 100vw - 2rem - 1rem - 4px - ~8px gaps ≈ (100vw - 3.5rem) / 9 */
-        width: calc((100vw - 3.5rem) / 9);
-        height: calc((100vw - 3.5rem) / 9);
-        font-size: calc((100vw - 3.5rem) / 9 * 0.4);
+        /* Dynamic sizing: (100dvw - body padding - app padding - board padding - gaps) / 9 columns */
+        /* 100dvw - 2rem - 1rem - 4px - ~8px gaps ≈ (100dvw - 3.5rem) / 9 */
+        width: calc((100dvw - 3.5rem) / 9);
+        height: calc((100dvw - 3.5rem) / 9);
+        font-size: calc((100dvw - 3.5rem) / 9 * 0.4);
         min-width: 32px;
         min-height: 32px;
     }
@@ -253,20 +253,12 @@ h1::before {
     }
 
     .cell {
-        /* Dynamic sizing for smaller screens: (100vw - body padding - app padding - board padding - gaps) / 9 */
-        /* 100vw - 1.5rem - 1rem - 4px - ~8px gaps ≈ (100vw - 3rem) / 9 */
-        width: calc((100vw - 3rem) / 9);
-        height: calc((100vw - 3rem) / 9);
-        font-size: calc((100vw - 3rem) / 9 * 0.45);
+        /* Dynamic sizing for smaller screens: (100dvw - body padding - app padding - board padding - gaps) / 9 */
+        /* 100dvw - 1.5rem - 1rem - 4px - ~8px gaps ≈ (100dvw - 3rem) / 9 */
+        width: calc((100dvw - 3rem) / 9);
+        height: calc((100dvw - 3rem) / 9);
+        font-size: calc((100dvw - 3rem) / 9 * 0.45);
         min-width: 28px;
         min-height: 28px;
-    }
-
-    h1 {
-        font-size: 1.25rem;
-    }
-
-    .new-game-btn {
-        font-size: 2rem;
     }
 }
