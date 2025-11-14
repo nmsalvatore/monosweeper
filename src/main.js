@@ -1,4 +1,54 @@
 // Entry point for Minesweeper app
-console.log('Minesweeper app loaded');
+import { GameController } from './controller/GameController.js';
+import { BoardRenderer } from './ui/BoardRenderer.js';
+import { InputHandler } from './ui/InputHandler.js';
 
-// Game initialization will happen here after TDD implementation
+// Game configuration (Beginner mode)
+const ROWS = 9;
+const COLS = 9;
+const MINES = 10;
+
+// Initialize game
+const container = document.getElementById('game-container');
+const gameController = new GameController();
+
+// Start new game
+gameController.startNewGame(ROWS, COLS, MINES);
+
+// Get initial game state
+const gameState = gameController.getGameState();
+
+// Create renderer
+const boardRenderer = new BoardRenderer(container, gameState.board);
+boardRenderer.render();
+
+// Wrap GameController methods to trigger re-render after each action
+const originalHandleCellClick = gameController.handleCellClick.bind(gameController);
+const originalHandleCellRightClick = gameController.handleCellRightClick.bind(gameController);
+
+gameController.handleCellClick = (row, col) => {
+  originalHandleCellClick(row, col);
+  boardRenderer.render();
+  checkGameStatus();
+};
+
+gameController.handleCellRightClick = (row, col) => {
+  originalHandleCellRightClick(row, col);
+  boardRenderer.render();
+};
+
+// Create input handler
+const inputHandler = new InputHandler(container, gameController);
+
+// Check game status and display message
+function checkGameStatus() {
+  const state = gameController.getGameState();
+
+  if (state.status === 'won') {
+    setTimeout(() => alert('🎉 You won! Congratulations!'), 100);
+  } else if (state.status === 'lost') {
+    setTimeout(() => alert('💣 Game Over! You hit a mine.'), 100);
+  }
+}
+
+console.log('Minesweeper game initialized!');
