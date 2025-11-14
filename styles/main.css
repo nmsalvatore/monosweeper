@@ -43,6 +43,8 @@ body {
     background: var(--nord-bg);
     padding: var(--spacing-xl);
     max-width: 600px;
+    position: relative;
+    bottom: 1rem;
 }
 
 /* ========================================
